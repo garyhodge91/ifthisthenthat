@@ -4,6 +4,43 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#0099cc"  >
-    
+
+    <Spinner
+        android:id="@+id/actionCategorySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/actionCategorySpinner"
+        android:layout_marginLeft="22dp" >
+
+        <LinearLayout
+            android:id="@+id/actionsAppsList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ScrollView
+        android:id="@+id/actionsList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/horizontalScrollView1"
+        android:layout_below="@+id/horizontalScrollView1" >
+
+        <LinearLayout
+            android:id="@+id/actionDescriptions"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

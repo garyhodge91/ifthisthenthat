@@ -5,4 +5,18 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="dummy_button">Dummy Button</string>
 
+    <string-array name="action_categories">
+        <item>Please Select</item>
+        <item>Send Message</item>
+        <item>Activate/Deactivate setting</item>
+        <item>Display Message</item>
+        <item>Save file</item>
+    </string-array>
+    
+    <string-array name="trigger_categories">
+        <item>Please Select</item>
+        <item>Receive Message</item>
+        <item>Activate/Deactivate setting</item>
+        <item>Physical</item>
+    </string-array>
 </resources>

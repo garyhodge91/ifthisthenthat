@@ -33,6 +33,7 @@ public class addMoment extends Activity implements OnClickListener{
 		case R.id.addTrigger:
 			Intent iAddTrigger = new Intent(addMoment.this, addTrigger.class);
 			startActivityForResult(iAddTrigger, 0);
+			break;
 		case R.id.addAction:
 			Intent iAddAction = new Intent(addMoment.this, addAction.class);
 			startActivityForResult(iAddAction, 0);
