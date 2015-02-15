@@ -25,12 +25,19 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int dummy_button=0x7f070002;
-        public static final int fullscreen_content=0x7f070000;
-        public static final int fullscreen_content_controls=0x7f070001;
+        public static final int addAction=0x7f070004;
+        public static final int addMoment=0x7f070000;
+        public static final int addTrigger=0x7f070005;
+        public static final int cancel=0x7f070001;
+        public static final int confirm=0x7f070002;
+        public static final int descriptionTextView=0x7f070003;
+        public static final int editText1=0x7f070006;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
+        public static final int add_action=0x7f030001;
+        public static final int add_moment=0x7f030002;
+        public static final int add_trigger=0x7f030003;
     }
     public static final class string {
         public static final int app_name=0x7f050000;
@@ -100,7 +107,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:buttonBarButtonStyle
+          @attr name com.example.it3:buttonBarButtonStyle
         */
         public static final int ButtonBarContainerTheme_buttonBarButtonStyle = 1;
         /**
@@ -110,7 +117,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 
           <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
-          @attr name android:buttonBarStyle
+          @attr name com.example.it3:buttonBarStyle
         */
         public static final int ButtonBarContainerTheme_buttonBarStyle = 0;
     };
