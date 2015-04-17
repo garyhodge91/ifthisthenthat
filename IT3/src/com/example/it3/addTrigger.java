@@ -110,7 +110,9 @@ public class addTrigger extends Activity implements OnClickListener, OnItemSelec
 		ImageView imageView = new ImageView(getApplicationContext());
 		imageView.setLayoutParams(new LayoutParams(180,180));
 		imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-		imageView.setImageResource(R.drawable.twitter);
+		int resId = getResources().getIdentifier(appName.toLowerCase(), "drawable", getPackageName());
+		System.out.println("appName: " + appName + " resId: " + resId);
+		imageView.setImageResource(resId);
 		imageView.setOnClickListener(new OnClickListener() {			
 			@Override
 			public void onClick(View v) {
