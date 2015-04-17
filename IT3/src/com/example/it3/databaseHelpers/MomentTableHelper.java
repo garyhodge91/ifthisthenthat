@@ -48,7 +48,7 @@ public class MomentTableHelper {
 		if(c != null){
 			c.moveToFirst();
 			Moment moment = new Moment();
-			moment.createMoment(c.getInt(c.getColumnIndex(KEY_ID)), c.getString(c.getColumnIndex(KEY_NAME)), c.getInt(c.getColumnIndex(KEY_ACTIVE)), c.getInt(c.getColumnIndex(KEY_IS_DELETED)), c.getString(c.getColumnIndex(KEY_CREATE_DATE)), c.getString(c.getColumnIndex(KEY_LAST_RAN)), c.getString(c.getColumnIndex(KEY_LAST_MODIFIED)));
+			moment.loadMoment(c.getInt(c.getColumnIndex(KEY_ID)), c.getString(c.getColumnIndex(KEY_NAME)), c.getInt(c.getColumnIndex(KEY_ACTIVE)), c.getInt(c.getColumnIndex(KEY_IS_DELETED)), c.getString(c.getColumnIndex(KEY_CREATE_DATE)), c.getString(c.getColumnIndex(KEY_LAST_RAN)), c.getString(c.getColumnIndex(KEY_LAST_MODIFIED)));
 			return moment;
 		}
 		return null;
@@ -72,7 +72,7 @@ public class MomentTableHelper {
 		
 		String selectQuery = "SELECT * FROM " + TABLE_NAME + " " + whereClause; 
 		
-		if(orderBy != null){
+		if(orderBy.length() > 0){
 			selectQuery += " " + orderBy;
 		}
 		
@@ -82,7 +82,7 @@ public class MomentTableHelper {
 			for(int i = 0; i < c.getCount(); i++){
 				c.move(i);
 				Moment moment = new Moment();
-				moment.createMoment(c.getInt(c.getColumnIndex(KEY_ID)), c.getString(c.getColumnIndex(KEY_NAME)), c.getInt(c.getColumnIndex(KEY_ACTIVE)), c.getInt(c.getColumnIndex(KEY_IS_DELETED)), c.getString(c.getColumnIndex(KEY_CREATE_DATE)), c.getString(c.getColumnIndex(KEY_LAST_RAN)), c.getString(c.getColumnIndex(KEY_LAST_MODIFIED)));
+				moment.loadMoment(c.getInt(c.getColumnIndex(KEY_ID)), c.getString(c.getColumnIndex(KEY_NAME)), c.getInt(c.getColumnIndex(KEY_ACTIVE)), c.getInt(c.getColumnIndex(KEY_IS_DELETED)), c.getString(c.getColumnIndex(KEY_CREATE_DATE)), c.getString(c.getColumnIndex(KEY_LAST_RAN)), c.getString(c.getColumnIndex(KEY_LAST_MODIFIED)));
 				
 				moments.add(moment);
 				

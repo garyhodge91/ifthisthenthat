@@ -57,7 +57,7 @@ public class ActionTableHelper {
 		if(c != null){
 			c.moveToFirst();
 			Action action = new Action();
-			action.createAction(c.getInt(c.getColumnIndex(KEY_ID)), c.getString(c.getColumnIndex(KEY_APP_NAME)), c.getString(c.getColumnIndex(KEY_CATEGORY)), c.getString(c.getColumnIndex(KEY_ACTION_DESCRIPTION)), c.getInt(c.getColumnIndex(KEY_ACTION_NUMBER)), c.getString(c.getColumnIndex(KEY_PARAM_1)), c.getString(c.getColumnIndex(KEY_PARAM_2)), c.getString(c.getColumnIndex(KEY_PARAM_3)), c.getInt(c.getColumnIndex(KEY_MOMENT_ID)));
+			action.loadAction(c.getInt(c.getColumnIndex(KEY_ID)), c.getString(c.getColumnIndex(KEY_APP_NAME)), c.getString(c.getColumnIndex(KEY_CATEGORY)), c.getString(c.getColumnIndex(KEY_ACTION_DESCRIPTION)), c.getInt(c.getColumnIndex(KEY_ACTION_NUMBER)), c.getString(c.getColumnIndex(KEY_PARAM_1)), c.getString(c.getColumnIndex(KEY_PARAM_2)), c.getString(c.getColumnIndex(KEY_PARAM_3)), c.getInt(c.getColumnIndex(KEY_MOMENT_ID)));
 			return action;
 		}
 		return null;
@@ -80,7 +80,7 @@ public class ActionTableHelper {
 			for(int i = 0; i < c.getCount(); i++){
 				c.move(i);
 				Action action = new Action();
-				action.createAction(c.getInt(c.getColumnIndex(KEY_ID)), c.getString(c.getColumnIndex(KEY_APP_NAME)), c.getString(c.getColumnIndex(KEY_CATEGORY)), c.getString(c.getColumnIndex(KEY_ACTION_DESCRIPTION)), c.getInt(c.getColumnIndex(KEY_ACTION_NUMBER)), c.getString(c.getColumnIndex(KEY_PARAM_1)), c.getString(c.getColumnIndex(KEY_PARAM_2)), c.getString(c.getColumnIndex(KEY_PARAM_3)), c.getInt(c.getColumnIndex(KEY_MOMENT_ID)));
+				action.loadAction(c.getInt(c.getColumnIndex(KEY_ID)), c.getString(c.getColumnIndex(KEY_APP_NAME)), c.getString(c.getColumnIndex(KEY_CATEGORY)), c.getString(c.getColumnIndex(KEY_ACTION_DESCRIPTION)), c.getInt(c.getColumnIndex(KEY_ACTION_NUMBER)), c.getString(c.getColumnIndex(KEY_PARAM_1)), c.getString(c.getColumnIndex(KEY_PARAM_2)), c.getString(c.getColumnIndex(KEY_PARAM_3)), c.getInt(c.getColumnIndex(KEY_MOMENT_ID)));
 				actions.add(action);
 				
 			}

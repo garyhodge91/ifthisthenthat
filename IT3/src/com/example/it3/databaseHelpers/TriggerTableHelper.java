@@ -57,7 +57,7 @@ public class TriggerTableHelper {
 		if(c != null){
 			c.moveToFirst();
 			Trigger trigger = new Trigger();
-			trigger.createTrigger(c.getInt(c.getColumnIndex(KEY_ID)), c.getString(c.getColumnIndex(KEY_APP_NAME)), c.getString(c.getColumnIndex(KEY_CATEGORY)), c.getString(c.getColumnIndex(KEY_TRIGGER_DESCRIPTION)), c.getInt(c.getColumnIndex(KEY_TRIGGER_NUMBER)), c.getString(c.getColumnIndex(KEY_PARAM_1)), c.getString(c.getColumnIndex(KEY_PARAM_2)), c.getString(c.getColumnIndex(KEY_PARAM_3)), c.getInt(c.getColumnIndex(KEY_MOMENT_ID)));
+			trigger.loadTrigger(c.getInt(c.getColumnIndex(KEY_ID)), c.getString(c.getColumnIndex(KEY_APP_NAME)), c.getString(c.getColumnIndex(KEY_CATEGORY)), c.getString(c.getColumnIndex(KEY_TRIGGER_DESCRIPTION)), c.getInt(c.getColumnIndex(KEY_TRIGGER_NUMBER)), c.getString(c.getColumnIndex(KEY_PARAM_1)), c.getString(c.getColumnIndex(KEY_PARAM_2)), c.getString(c.getColumnIndex(KEY_PARAM_3)), c.getInt(c.getColumnIndex(KEY_MOMENT_ID)));
 			return trigger;
 		}
 		return null;
@@ -80,7 +80,7 @@ public class TriggerTableHelper {
 			for(int i = 0; i < c.getCount(); i++){
 				c.move(i);
 				Trigger trigger = new Trigger();
-				trigger.createTrigger(c.getInt(c.getColumnIndex(KEY_ID)), c.getString(c.getColumnIndex(KEY_APP_NAME)), c.getString(c.getColumnIndex(KEY_CATEGORY)), c.getString(c.getColumnIndex(KEY_TRIGGER_DESCRIPTION)), c.getInt(c.getColumnIndex(KEY_TRIGGER_NUMBER)), c.getString(c.getColumnIndex(KEY_PARAM_1)), c.getString(c.getColumnIndex(KEY_PARAM_2)), c.getString(c.getColumnIndex(KEY_PARAM_3)), c.getInt(c.getColumnIndex(KEY_MOMENT_ID)));
+				trigger.loadTrigger(c.getInt(c.getColumnIndex(KEY_ID)), c.getString(c.getColumnIndex(KEY_APP_NAME)), c.getString(c.getColumnIndex(KEY_CATEGORY)), c.getString(c.getColumnIndex(KEY_TRIGGER_DESCRIPTION)), c.getInt(c.getColumnIndex(KEY_TRIGGER_NUMBER)), c.getString(c.getColumnIndex(KEY_PARAM_1)), c.getString(c.getColumnIndex(KEY_PARAM_2)), c.getString(c.getColumnIndex(KEY_PARAM_3)), c.getInt(c.getColumnIndex(KEY_MOMENT_ID)));
 				triggers.add(trigger);
 				
 			}
