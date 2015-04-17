@@ -14,7 +14,19 @@ public class Trigger implements Parcelable{
 	private String param3;
 	private int momentId;
 	
-	public Trigger createTrigger(int id, String appName, String category,  String triggerDescription, int triggerNumber, String param1, String param2, String param3, int momentId){
+	public static final String KEY = "trigger";
+	
+	public static Trigger createTrigger(String category, String appName, String actionDescription, int actionNumber){
+		Trigger newTrigger = new Trigger();
+		newTrigger.category = category;
+		newTrigger.appName = appName;
+		newTrigger.triggerDescription = actionDescription;
+		newTrigger.triggerNumber = actionNumber;
+		
+		return newTrigger;
+	}
+	
+	public Trigger loadTrigger(int id, String appName, String category,  String triggerDescription, int triggerNumber, String param1, String param2, String param3, int momentId){
 		this.id = id;
 		this.appName = appName;
 		this.category = category;
@@ -64,7 +76,7 @@ public class Trigger implements Parcelable{
 		return this;
 	}
 	
-	static final Parcelable.Creator<Trigger> CREATOR = new Parcelable.Creator<Trigger>() {
+	public static final Parcelable.Creator<Trigger> CREATOR = new Parcelable.Creator<Trigger>() {
 
 		@Override
 		public Trigger createFromParcel(Parcel in) {

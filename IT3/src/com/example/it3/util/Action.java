@@ -14,18 +14,32 @@ public class Action implements Parcelable{
 	private String param3;
 	private int momentId;
 	
-	public Action createAction(int id, String appName, String category,  String actionDescription, int actionNumber, String param1, String param2, String param3, int momentId){
-		this.id = id;
-		this.appName = appName;
-		this.category = category;
-		this.actionDescription = actionDescription;
-		this.actionNumber = actionNumber;
-		this.param1 = param1;
-		this.param2 = param2;
-		this.param3 = param3;
-		this.momentId = momentId;
+	public static final String KEY = "action";
+	
+	public static Action createAction(String category, String appName, String actionDescription, int actionNumber){
+		Action newAction = new Action();
+		newAction.category = category;
+		newAction.appName = appName;
+		newAction.actionDescription = actionDescription;
+		newAction.actionNumber = actionNumber;
 		
-		return this;
+		return newAction;
+	}
+	
+	public static Action loadAction(int id, String appName, String category,  String actionDescription, int actionNumber, String param1, String param2, String param3, int momentId){
+		Action action = new Action();
+		
+		action.id = id;
+		action.appName = appName;
+		action.category = category;
+		action.actionDescription = actionDescription;
+		action.actionNumber = actionNumber;
+		action.param1 = param1;
+		action.param2 = param2;
+		action.param3 = param3;
+		action.momentId = momentId;
+		
+		return action;
 		
 	}
 	
@@ -64,7 +78,7 @@ public class Action implements Parcelable{
 		return this;
 	}
 	
-	static final Parcelable.Creator<Action> CREATOR = new Parcelable.Creator<Action>() {
+	public static final Parcelable.Creator<Action> CREATOR = new Parcelable.Creator<Action>() {
 
 		@Override
 		public Action createFromParcel(Parcel in) {

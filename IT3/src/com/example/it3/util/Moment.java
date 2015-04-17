@@ -12,7 +12,19 @@ public class Moment implements Parcelable{
 	private String lastRan;
 	private String lastModified;
 	
-	public Moment createMoment (int id, String name, int isActive, int isDeleted, String createDate, String lastRan, String lastModified){
+	public Moment createMoment (String name, int isActive, int isDeleted, String createDate, String lastRan, String lastModified){
+		this.name = name;
+		this.createDate = createDate;
+		this.isActive = isActive;
+		this.isDeleted = isDeleted;
+		this.createDate = createDate;
+		this.lastRan = lastRan;
+		this.lastModified = lastModified;
+		
+		return this;
+	}
+	
+	public Moment loadMoment (int id, String name, int isActive, int isDeleted, String createDate, String lastRan, String lastModified){
 		this.id = id;
 		this.name = name;
 		this.createDate = createDate;
@@ -57,7 +69,7 @@ public class Moment implements Parcelable{
 		return this;
 	}
 	
-	static final Parcelable.Creator<Moment> CREATOR = new Parcelable.Creator<Moment>() {
+	public static final Parcelable.Creator<Moment> CREATOR = new Parcelable.Creator<Moment>() {
 
 		@Override
 		public Moment createFromParcel(Parcel in) {

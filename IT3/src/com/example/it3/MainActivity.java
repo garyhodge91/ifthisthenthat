@@ -1,18 +1,19 @@
 package com.example.it3;
 
-import android.annotation.TargetApi;
+import java.util.ArrayList;
+
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.it3.databaseHelpers.DatabaseHelper;
+import com.example.it3.databaseHelpers.MomentTableHelper;
+import com.example.it3.util.Moment;
 import com.example.it3.util.SystemUiHider;
 
 /**
@@ -24,6 +25,11 @@ import com.example.it3.util.SystemUiHider;
 public class MainActivity extends ListActivity implements OnClickListener {    
     ListView list;
     Button addMoment;
+    
+    DatabaseHelper db;
+    MomentTableHelper mh;
+    
+    ArrayList<Moment> moments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +40,13 @@ public class MainActivity extends ListActivity implements OnClickListener {
         
         addMoment = (Button) findViewById(R.id.addMoment);
         addMoment.setOnClickListener(this);
+        
+        db = new DatabaseHelper(this);
+        db.getWritableDatabase();
+        
+        mh = new MomentTableHelper();
+        
+        moments = (ArrayList<Moment>) mh.getMoments(db, "1", "0", "");
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
@@ -48,8 +61,8 @@ public class MainActivity extends ListActivity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		Intent i = new Intent(MainActivity.this, addMoment.class);
-		startActivityForResult(i, 0);
+		Intent intent = new Intent(MainActivity.this, addMoment.class);
+		startActivityForResult(intent, 0);
 		
 	}
 }

@@ -3,6 +3,7 @@ package com.example.it3;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -12,6 +13,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -23,14 +25,15 @@ import com.example.it3.util.createActions;
 public class addAction extends Activity implements OnClickListener, OnItemSelectedListener{
 	
 	Spinner spinner;
-	ArrayList actions;
-	ArrayList apps;
-	ArrayList actionDescriptions;
+	ArrayList actions, apps, actionDescriptions;
 	
-	LinearLayout actionsAppsList;
-	LinearLayout actionDescriptionsList;
+	LinearLayout actionsAppsList, actionDescriptionsList;
 	
 	String category;
+	
+	Action action;
+	
+	Button done;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -49,11 +52,23 @@ public class addAction extends Activity implements OnClickListener, OnItemSelect
         actionDescriptionsList = (LinearLayout)findViewById(R.id.actionDescriptions);
         
         actions = createActions.newActions();
+        
+        done = (Button)findViewById(R.id.actionsDone);
+        done.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
+		switch(v.getId()){
+		case R.id.actionsDone:
+			Intent newAction = new Intent();
+			Bundle backpack = new Bundle();
+			backpack.putParcelable(Action.KEY, action);
+			newAction.putExtras(backpack);
+			setResult(RESULT_OK, newAction);
+			finish();
+			break;
+		}
 		
 	}
 
@@ -78,6 +93,8 @@ public class addAction extends Activity implements OnClickListener, OnItemSelect
 			}
 		
 //		Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+
+
 		
 	}
 
@@ -100,7 +117,7 @@ public class addAction extends Activity implements OnClickListener, OnItemSelect
 		imageView.setOnClickListener(new OnClickListener(){
 			@Override
 			   public void onClick(View v) {
-				Integer size = actions.size();
+				int size = actions.size();
 				String appName = (String) apps.get(index);
 				actionDescriptions = new ArrayList<String>();
 				actionDescriptionsList.removeAllViews();
@@ -132,6 +149,8 @@ public class addAction extends Activity implements OnClickListener, OnItemSelect
 			@Override
 			   public void onClick(View v) {
 			    System.out.println("Clicked - " + actionDescriptions.get(index));
+			    action = (Action) actions.get(index);
+			    
 			    
 			   }
 			}
