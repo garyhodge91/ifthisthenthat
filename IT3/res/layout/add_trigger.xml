@@ -12,4 +12,43 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" />
 
+    <HorizontalScrollView
+        android:id="@+id/triggerHorizontalScrollView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/triggerCategorySpinner"
+        android:layout_marginLeft="22dp" >
+
+        <LinearLayout
+            android:id="@+id/triggerAppsList"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ScrollView
+        android:id="@+id/triggersList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/triggerHorizontalScrollView"
+        android:layout_below="@+id/triggerHorizontalScrollView" >
+
+        <LinearLayout
+            android:id="@+id/triggerDescriptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/triggersDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Done" />
+
 </RelativeLayout>
