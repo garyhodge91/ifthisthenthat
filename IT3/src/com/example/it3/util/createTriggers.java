@@ -2,21 +2,45 @@ package com.example.it3.util;
 
 import java.util.ArrayList;
 
+import com.example.it3.databaseHelpers.*;
+
 public class createTriggers {
 	
-	public static ArrayList<Trigger> newTriggers(){
-		ArrayList<Trigger> triggers = new ArrayList<Trigger>();
-			
-		Trigger facebookDM = Trigger.createTrigger("Receive Message", "Facebook", "Send Facebook Direct Message", 1);
-		triggers.add(facebookDM);
+	public static void newTriggerDefs(DatabaseHelper db){
 		
-		Trigger twitterDM = Trigger.createTrigger("Receive Message", "Twitter", "Send Twitter Direct Message", 2);
-		triggers.add(twitterDM);
+		TriggerDefTableHelper tdh = new TriggerDefTableHelper();
+		TriggerDef triggerDef;
 		
-		Trigger notification = Trigger.createTrigger("Physical", "System", "Display Notification", 3);
-		triggers.add(notification);
+		triggerDef = TriggerDef.createTriggerDef("Receive Message", "Send Facebook Direct Message", "facebook");
+		tdh.createTriggerDef(triggerDef, db);
 		
-		return triggers;
+		triggerDef = TriggerDef.createTriggerDef("Test 1", "location", "facebook");
+		tdh.createTriggerDef(triggerDef, db);
+		
+		triggerDef = TriggerDef.createTriggerDef("Test 2", "location", "facebook");
+		tdh.createTriggerDef(triggerDef, db);
+		
+		triggerDef = TriggerDef.createTriggerDef("Test 3", "location", "facebook");
+		tdh.createTriggerDef(triggerDef, db);
+		
+		triggerDef = TriggerDef.createTriggerDef("Test 4", "location", "facebook");
+		tdh.createTriggerDef(triggerDef, db);
+		
+		triggerDef = TriggerDef.createTriggerDef("Receive Message", "twitter", "Send Twitter Direct Message");
+		tdh.createTriggerDef(triggerDef, db);
+		
+		triggerDef = TriggerDef.createTriggerDef("Test 1", "twitter", "Display Notification");
+		tdh.createTriggerDef(triggerDef, db);
+		
+		triggerDef = TriggerDef.createTriggerDef("Test 2", "twitter", "location");
+		tdh.createTriggerDef(triggerDef, db);
+		
+		triggerDef = TriggerDef.createTriggerDef("Test 3", "twitter", "location");
+		tdh.createTriggerDef(triggerDef, db);
+		
+		triggerDef = TriggerDef.createTriggerDef("Test 4", "twitter", "location");
+		tdh.createTriggerDef(triggerDef, db);
+		
 		}
 
 }

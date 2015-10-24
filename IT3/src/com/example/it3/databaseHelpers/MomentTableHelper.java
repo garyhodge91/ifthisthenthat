@@ -63,7 +63,7 @@ public class MomentTableHelper {
 		if(isActive != null || isDeleted != null){
 			whereClause = "WHERE ";
 			if(isActive != null){
-				whereClause += KEY_ACTIVE + " = " + isActive; 
+				whereClause += KEY_ACTIVE + " = '" + isActive + "'"; 
 			} else {
 				whereClause += KEY_IS_DELETED + " = " + isDeleted;
 			}

@@ -1,4 +1,4 @@
-package com.example.it3;
+/*package com.example.it3;
 
 import java.util.ArrayList;
 
@@ -152,3 +152,4 @@ public class addTrigger extends Activity implements OnClickListener, OnItemSelec
 	}
 
 }
+*/

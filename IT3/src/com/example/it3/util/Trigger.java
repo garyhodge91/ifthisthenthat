@@ -5,10 +5,8 @@ import android.os.Parcelable;
 
 public class Trigger implements Parcelable{
 	private int id;
-	private String appName;
-	private String category;
-	private String triggerDescription;
 	private int triggerNumber;
+	private int triggered;
 	private String param1;
 	private String param2;
 	private String param3;
@@ -16,21 +14,15 @@ public class Trigger implements Parcelable{
 	
 	public static final String KEY = "trigger";
 	
-	public static Trigger createTrigger(String category, String appName, String actionDescription, int actionNumber){
+	public static Trigger createTrigger(int triggerNumber){
 		Trigger newTrigger = new Trigger();
-		newTrigger.category = category;
-		newTrigger.appName = appName;
-		newTrigger.triggerDescription = actionDescription;
-		newTrigger.triggerNumber = actionNumber;
+		newTrigger.triggerNumber = triggerNumber;
 		
 		return newTrigger;
 	}
 	
-	public Trigger loadTrigger(int id, String appName, String category,  String triggerDescription, int triggerNumber, String param1, String param2, String param3, int momentId){
+	public Trigger loadTrigger(int id, int triggerNumber, String param1, String param2, String param3, int momentId){
 		this.id = id;
-		this.appName = appName;
-		this.category = category;
-		this.triggerDescription = triggerDescription;
 		this.triggerNumber = triggerNumber;
 		this.param1 = param1;
 		this.param2 = param2;
@@ -51,9 +43,6 @@ public class Trigger implements Parcelable{
 	public void writeToParcel(Parcel dest, int flags) {
 		// TODO Auto-generated method stub
 		dest.writeInt(id);
-		dest.writeString(appName);
-		dest.writeString(category);
-		dest.writeString(triggerDescription);
 		dest.writeInt(triggerNumber);
 		dest.writeString(param1);
 		dest.writeString(param2);
@@ -64,9 +53,6 @@ public class Trigger implements Parcelable{
 	
 	public Trigger readFromParcel(Parcel in){
 		this.id = in.readInt();
-		this.appName = in.readString();
-		this.category = in.readString();
-		this.triggerDescription = in.readString();
 		this.triggerNumber = in.readInt();
 		this.param1 = in.readString();
 		this.param2 = in.readString();
@@ -90,21 +76,6 @@ public class Trigger implements Parcelable{
 			return new Trigger[size];
 		}
 	};
-	
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-	public void setAppName(String appName) {
-		this.appName = appName;
-	}
-
-	public void setTriggerDescription(String triggerDescription) {
-		this.triggerDescription = triggerDescription;
-	}
 
 	public int getId() {
 		return id;
@@ -116,13 +87,6 @@ public class Trigger implements Parcelable{
 
 	public void setTriggerNumber(int triggerNumber) {
 		this.triggerNumber = triggerNumber;
-	}
-
-	public String getAppName() {
-		return appName;
-	}
-	public String getTriggerDescription() {
-		return triggerDescription;
 	}
 
 	public String getParam1() {
@@ -159,6 +123,14 @@ public class Trigger implements Parcelable{
 
 	public int getTriggerNumber() {
 		return triggerNumber;
+	}
+
+	public int getTriggered() {
+		return triggered;
+	}
+
+	public void setTriggered(int triggered) {
+		this.triggered = triggered;
 	}
 
 }
